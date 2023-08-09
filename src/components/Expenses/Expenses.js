@@ -3,6 +3,7 @@ import ExpenseItem from './ExpenseItem'
 import './Expenses.css'
 import Card from '../UI/Card'
 import ExpensesFilter from './ExpenseFilter'
+import ExpensesChart from './ExpensesChart'
 
 const Expenses = (props) => {
 
@@ -24,6 +25,7 @@ const Expenses = (props) => {
         <div>
             <Card className='expenses'>
                 <ExpensesFilter selected={filteredYear} onFilterChange={filterChangeHandler} />
+                <ExpensesChart expenses={filteredExpenses} />
                 {filteredExpenses.length === 0 ? <h1 className='expenses__empty'>No items found</h1> : filteredExpenses.map((item) => {
                     return <ExpenseItem
                         key={item.id}
